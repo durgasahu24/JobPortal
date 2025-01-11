@@ -1,0 +1,64 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.*.local
+
+# Dependency directories
+node_modules/
+**/node_modules/
+
+# Build directories
+dist/
+build/
+public/
+out/
+
+# Cache
+.cache/
+.next/
+.nyc_output/
+coverage/
+
+# Static files
+*.DS_Store
+Thumbs.db
+
+# Temporary files and IDE settings
+*.swp
+*.swo
+.vscode/
+.idea/
+*.iml
+
+# System files
+.DS_Store
+*.pid
+
+# npm and Yarn files
+package-lock.json
+yarn.lock
+
+# React-specific
+coverage/
+*.sass-cache
+
+# MongoDB-specific
+data/
+*.lock
+mongod.lock
+
+# Docker
+docker-compose.override.yml
+.dockerignore
+docker-compose.override.yaml
+.env.docker
+
+# Miscellaneous
+*.bak
+*.tmp
