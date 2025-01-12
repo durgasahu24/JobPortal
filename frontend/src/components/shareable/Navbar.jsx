@@ -150,7 +150,7 @@ function Navbar() {
           className={`fixed top-0 left-0 h-full w-72 bg-white shadow-md z-50 transform transition-transform duration-300 ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
             }`}
         >
-
+cd
           {/* Close Button */}
           <div className="flex justify-end p-4">
             <button onClick={closeMobileMenu} className="text-gray-800">
