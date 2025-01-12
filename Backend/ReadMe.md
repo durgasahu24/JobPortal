@@ -1,27 +1,173 @@
 # User Routes
 
-This file defines the routes for user-related operations.
+## Register User
 
-## Routes
+**Endpoint:** `POST /api/v1/user/register`
 
-- `POST /register`: Register a new user.
-- `POST /login`: Log in a user.
-- `GET /logout`: Log out a user.
-- `POST /update`: Update user profile.
+**Description:** Registers a new user.
 
-## Middleware
+**Request Body:**
+- `fullName`: Full name
+- `email`: Email address
+- `password`: Password
+- `phoneNumber`: Phone number
+- `role`: User role (student or recruiter)
 
-- `auth`: Middleware to authenticate the user.
-- `singleUpload`: Middleware to handle single file uploads.
+**Response:**
+- `200 OK`: 
+  ```json
+  {
+    "message": "Account created successfully",
+    "createUser": { ... },
+    "success": true
+  }
 
-## Controllers
+**400 Bad Request**
+```json
+{
+  "message": "All fields are necessary in registration",
+  "success": false
+}
+{
+  "message": "All fields are necessary in registration",
+  "success": false
+}
+```
 
-- `register`: Handles user registration.
-- `loginUser`: Handles user login.
-- `logoutUser`: Handles user logout.
-- `updateProfile`: Handles updating user profile.
+## Login User
 
-## Example Usage
+**Endpoint:** `POST /api/v1/user/login`
 
-```sh
-curl -X POST http://localhost:3000/api/v1/user/register -d '{"fullName": "John Doe", "email": "john@example.com", "password": "password", "phoneNumber": "1234567890", "role": "student"}'
+**Description:** Logs in a user .
+
+**Request Body:**
+- `email`: Email address
+- `password`: Password
+- `role`: User role (student or recruiter)
+
+
+**Response:**
+- `200 OK`: 
+  ```json
+  {
+  "message": "Login successful",
+  "token": "jwt-token",
+  "loggedInUser": { ... },
+  "success": true
+  }
+
+
+**400 Bad Request:**
+```json
+  {
+  "message": "All fields are necessary in login",
+  "success": false
+ }
+ {
+  "message": "User doesn't find",
+  "success": false
+ }
+ {
+  "message": "Password is not matched",
+  "success": false
+ }
+ {
+  "message": "Account doesn't exist with current role",
+  "success": false
+}
+```
+
+
+## LogOut User
+
+**Endpoint:** `POST /api/v1/user/logout`
+
+**Description:** Logs out  a user .
+
+**Response:**
+- `200 OK`: 
+```json
+ {
+  "message": "Logout successful",
+  "success": true
+ }
+ ```
+
+ ## Update User Progile 
+
+**Endpoint:** `POST /api/v1/user/update`
+
+**Description:** Updates the profile of a user.
+
+**Request Headers:**
+- `Authorizaton`: Bearer token
+
+**Request Body:**
+- `fullName`: Full name
+- `email`: Email address
+- `phoneNumber`: Phone number
+- `bio`: Bio
+- `skills`:Skills
+
+
+**Response:**
+- `200 OK`: 
+```json
+ {
+  "message": "Profile updated successfully",
+  "user": { ... },
+  "success": true
+ }
+ ```
+
+
+ **400 Bad Request:**
+ ```json
+  {
+  "message": "User not found",
+  "success": false
+  }
+ ```
+
+
+# Job Routes 
+
+## Post Job
+
+**Endpoint:** `POST /api/v1/job/post`
+
+**Description:** Posts a new job..
+
+**Request Body:**
+- `title`: Job title
+- `descrpton`: Job descripton
+- `requirement`: job requirements
+- `salary`: job salary
+- `location`: Job location
+- `jobType`: :Job type
+- `position`:  Job position
+- `experienceLevel`: Experience level
+- `companyId`:  company ID
+
+**Response:**
+- `200 OK`: 
+  ```json
+  {
+  "message": "Job posted successfully",
+  "createJob": { ... },
+  "success": true
+  }
+
+**400 Bad Request**
+```json
+{
+  "message": "All fields are necessary in job posting",
+  "success": false
+}
+```
+
+
+
+
+
+
