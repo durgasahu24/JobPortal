@@ -41,3 +41,7 @@ app.use("/api/v1/user", router);
 app.use("/api/v1/company", companyroute)
 app.use("/api/v1/job", jobroute)
 app.use("/api/v1/application", applicationroute)
+
+app.get(() => {
+    console.log("hello bhai")
+})
